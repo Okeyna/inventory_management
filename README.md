@@ -17,10 +17,25 @@ A small Flask-based inventory management system with CRUD endpoints, an external
 
 ## Setup
 
-Install dependencies:
+Create and activate the Pipenv environment:
 
 ```bash
-pip install flask requests pytest
+pipenv install --dev
+pipenv shell
+```
+
+If Pipenv fails on your machine because of Python version compatibility, use the project’s existing virtual environment directly:
+
+```bash
+./.venv/bin/python -m pytest -q
+./.venv/bin/python -m flask --app inventory_app run
+```
+
+If you prefer to run a command without entering the shell:
+
+```bash
+pipenv run python -m pytest -q
+pipenv run flask --app inventory_app run
 ```
 
 ## Run the API
@@ -42,12 +57,12 @@ flask --app inventory_app run
 ## Run the CLI
 
 ```bash
-python cli.py list
-python cli.py lookup --query milk
+pipenv run python cli.py list
+pipenv run python cli.py lookup --query milk
 ```
 
 ## Run tests
 
 ```bash
-pytest -q
+pipenv run python -m pytest -q
 ```
